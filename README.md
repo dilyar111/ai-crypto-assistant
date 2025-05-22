@@ -1,33 +1,118 @@
 # 🧠 AI Crypto Assistant
 
-AI Crypto Assistant is a smart Streamlit app that allows the user to ask questions about cryptocurrencies and get meaningful answers based on:
+A simple cryptocurrency analysis tool that combines real-time market data with AI insights using local Llama models.
 
-- 🔎 Latest news (via [CryptoPanic API](https://cryptopanic.com/developers/api/))
-- 💸 Current price (via [Binance API](https://binance-docs.github.io/apidocs/spot/en/#ticker-price))
-- 📊 Market data (via [CoinGecko API](https://www.coingecko.com/en/api))
-- 🧠 Answer generation using the local [Ollama](https://ollama.com/) language model with the `llama2` model.
+## ✨ What It Does
+
+- 📊 **Real-time crypto data** - prices, market cap, volume from Binance & CoinGecko
+- 📰 **Latest news** - cryptocurrency news from CryptoPanic
+- 🤖 **AI analysis** - smart insights using local Llama 2/3 models
+- 🌐 **Multi-language** - Russian and English support
+
+## 🚀 Quick Start
+
+### 1. Install Requirements
+
+```bash
+# Clone and install
+git clone https://github.com/dilyar111/ai-crypto-assistant.git
+cd ai-crypto-assistant
+pip install -r requirements.txt
+
+# Install Ollama and pull model
+curl -fsSL https://ollama.ai/install.sh | sh
+ollama serve
+ollama pull llama2
+```
+
+### 2. Setup API Key (Optional)
+
+Create `.env` file:
+```env
+CRYPTOPANIC_API_KEY=your_api_key_here
+```
+Get free key at: https://cryptopanic.com/developers/api/
+
+### 3. Run
+
+```bash
+streamlit run app.py
+```
+
+Open http://localhost:8501 and start asking about cryptocurrencies!
+
+## 📱 Usage
+
+Just type natural questions like:
+- "Tell me about Bitcoin"
+- "What's happening with Ethereum?"
+- "Analyze Solana trends"
+
+The app will show:
+- 💰 Current price and 24h change
+- 📊 Market data and rankings  
+- 📰 Latest news headlines
+- 🤖 AI-powered analysis
+
+## 🛠️ Troubleshooting
+
+**AI not working?**
+```bash
+# Check Ollama is running
+ollama list
+# If empty, pull a model
+ollama pull llama2
+```
+
+**Need help?**
+```bash
+# Run diagnostics
+python troubleshoot.py
+```
+
+## 🎯 Supported Cryptocurrencies
+
+Bitcoin, Ethereum, Cardano, Solana, Dogecoin, Polkadot, Chainlink, Polygon, and 40+ more popular cryptocurrencies.
+
+## 📁 Project Structure
+
+```
+ai-crypto-assistant/
+├── app.py              # Main application
+├── app_debug.py        # Debug version
+├── troubleshoot.py     # Diagnostics tool
+├── assistant/          # Core modules
+├── requirements.txt    # Dependencies
+└── .env               # API keys
+```
+
+## 🔧 Configuration
+
+### AI Models
+- `llama2` - Default, balanced performance
+- `llama3` - More advanced reasoning
+- `mistral` - Fast and efficient
+
+### Analysis Modes
+- **Basic** - Quick overview
+- **Detailed** - Comprehensive analysis
+- **Deep** - Technical deep-dive
+
+## 🤝 Contributing
+
+1. Fork the repo
+2. Create feature branch
+3. Make changes
+4. Submit pull request
+
+## 📄 License
+
+MIT License - see LICENSE file
+
+## ⚠️ Disclaimer
+
+This tool is for educational purposes only. Not financial advice. Always do your own research before making investment decisions.
 
 ---
 
-## 📦 Usage
-
-Clone the repository:
-```bash
-git clone https://github.com/dilyar111/ai-crypto-assistant.git
-cd ai-crypto-assistant
-```
-Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-Install and run Ollama:
-Download: https://ollama.com/download
-Command:
-```bash
-ollama run llama2
-```
-Run:
-```bash
-ollama serve # Run local LLM server
-streamlit run app.py # Run Streamlit application
-```
+**Questions?** Open an issue on GitHub!
